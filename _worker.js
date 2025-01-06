@@ -17,18 +17,18 @@ export default {
 				githubRawUrl += url.pathname;
 			}
 			//console.log(githubRawUrl);
-			if (env.GH_TOKEN && env.TOKEN){
-				if (env.TOKEN == url.searchParams.get('token')) token = env.GH_TOKEN || token;
-				else token = url.searchParams.get('token') || token;
-			} else token = url.searchParams.get('token') || env.GH_TOKEN || env.TOKEN || token;
+			// if (env.GH_TOKEN && env.TOKEN){
+			// 	if (env.TOKEN == url.searchParams.get('token')) token = env.GH_TOKEN || token;
+			// 	else token = url.searchParams.get('token') || token;
+			// } else token = url.searchParams.get('token') || env.GH_TOKEN || env.TOKEN || token;
 			
-			const githubToken = token;
+			// const githubToken = token;
 			//console.log(githubToken);
-			if (!githubToken || githubToken == '') return new Response('TOKEN不能为空', { status: 400 });
+			// if (!githubToken || githubToken == '') return new Response('TOKEN不能为空', { status: 400 });
 			
 			// 构建请求头
 			const headers = new Headers();
-			headers.append('Authorization', `token ${githubToken}`);
+			// headers.append('Authorization', `token ${githubToken}`);
 
 			// 发起请求
 			const response = await fetch(githubRawUrl, { headers });
